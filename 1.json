@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "command": "systemctl start nginx",
+    "category": "SystemD",
+    "description": "Запускает службу Nginx web-сервера. Используйте эту команду для начала работы веб-сервера после конфигурации или перезагрузки системы.",
+    "usage": "sudo systemctl start nginx",
+    "parameters": [
+      {
+        "name": "nginx",
+        "description": "Название службы, которую нужно запустить"
+      }
+    ],
+    "examples": [
+      "sudo systemctl start nginx",
+      "systemctl start nginx --no-pager"
+    ]
+  },
+  {
+    "id": 2,
+    "command": "docker ps -a",
+    "category": "Docker",
+    "description": "Отображает все контейнеры Docker, включая остановленные. Полезно для мониторинга состояния контейнеров и просмотра истории их запусков.",
+    "usage": "docker ps [OPTIONS]",
+    "parameters": [
+      {
+        "name": "-a, --all",
+        "description": "Показать все контейнеры (по умолчанию показываются только работающие)"
+      },
+      {
+        "name": "-q, --quiet",
+        "description": "Показать только ID контейнеров"
+      }
+    ],
+    "examples": [
+      "docker ps -a",
+      "docker ps --filter \"status=exited\"",
+      "docker ps -aq"
+    ]
+  },
+  {
+    "id": 3,
+    "command": "journalctl -u service-name",
+    "category": "Логи",
+    "description": "Показывает логи конкретной службы systemd. Необходим для диагностики проблем и мониторинга работы служб.",
+    "usage": "journalctl [OPTIONS] -u UNIT",
+    "parameters": [
+      {
+        "name": "-u, --unit",
+        "description": "Показать логи указанной службы"
+      },
+      {
+        "name": "-f, --follow",
+        "description": "Следить за выводом логов в реальном времени"
+      },
+      {
+        "name": "--since",
+        "description": "Показать логи с указанного времени"
+      }
+    ],
+    "examples": [
+      "journalctl -u nginx",
+      "journalctl -u mysql --since \"2024-01-01\"",
+      "journalctl -u apache2 -f"
+    ]
+  }
+]
